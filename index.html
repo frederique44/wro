@@ -66,8 +66,64 @@
         }
         .highlight { color: var(--pink); font-weight: 700; }
 
-        /* CATEGORIES RINGS */
+        /* SECTIONS GLOBALES */
         .section { padding: 100px 0; }
+
+        /* STATS WRO MONDE */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .stat-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        /* TEXTE LONG / PILIERS */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 2fr 1.6fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .pillars-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .pillars-list li {
+            margin-bottom: 16px;
+            padding-left: 18px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .pillars-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: var(--pink);
+        }
+
+        /* CATEGORIES RINGS */
         .rings-container { display: flex; justify-content: center; gap: 40px; margin: 60px 0; flex-wrap: wrap; }
         .ring-box { position: relative; width: 180px; height: 180px; }
         .ring-svg { transform: rotate(-90deg); width: 100%; height: 100%; }
@@ -85,6 +141,14 @@
 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
         .desc-card { padding: 35px; border-radius: 20px; background: white; border: 1px solid #e2e8f0; border-top: 5px solid var(--c); }
+        .age-tag {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
 
         /* CALENDRIER STYLE TIMELINE */
         .timeline { position: relative; padding: 20px 0; }
@@ -99,8 +163,23 @@
         .time-item h4 { margin: 0 0 5px 0; color: var(--pink); text-transform: uppercase; letter-spacing: 1px; }
         .time-item .date-label { font-weight: 800; font-size: 1.2rem; color: var(--bg-dark-header); display: block; margin-bottom: 10px; }
 
+        .badge-level {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.7);
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* MATERIEL STYLE TECH CARDS */
-        .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .tech-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; /* une seule colonne maintenant */
+            gap: 30px; 
+        }
         .tech-card { 
             background: #fff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 40px;
             position: relative; overflow: hidden;
@@ -119,7 +198,49 @@
         }
         .tech-card li span { color: var(--text-muted); font-weight: 400; font-size: 0.9rem; }
 
+        /* THEMES + PRIX */
+        .theme-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .theme-list li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        .theme-year {
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-right: 6px;
+        }
+
+        /* FOOTER */
         .footer { background: var(--bg-dark-header); color: white; padding: 80px 0; }
+
+        /* Ajout pour les icônes réseaux sociaux */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 14px;
+        }
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .social-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+        .social-icon:hover {
+            border-color: var(--pink);
+            background: rgba(255,255,255,0.06);
+        }
     </style>
 </head>
 <body>
@@ -140,82 +261,419 @@
         <section class="hero">
             <div class="container">
                 <h1>World Robot <span>Olympiad™</span></h1>
-                <p style="opacity: 0.8; font-size: 1.2rem;">L'excellence technologique pour la jeunesse.</p>
+                <p style="opacity: 0.8; font-size: 1.2rem;">
+                    L'excellence technologique pour la jeunesse, au cœur d'un mouvement mondial de robotique éducative.
+                </p>
+                <p style="opacity: 0.75; font-size: 0.95rem; max-width: 680px; margin: 10px auto 0;">
+                    Plus de <strong>28 000 équipes</strong> dans plus de <strong>100 pays membres</strong> explorent chaque année la robotique,
+                    l’ingénierie et l’innovation à travers les défis WRO.
+                </p>
             </div>
         </section>
     </div>
 
     <div class="container">
+        <!-- VISION / INTRO -->
         <section class="vision-text" id="vision">
-            <p>La <span class="highlight">World Robot Olympiad (WRO)</span> est le plus grand concours de robotique éducative au monde, présent dans plus de 90 pays. Notre mission en France est d'inspirer la prochaine génération d'ingénieurs, de scientifiques et d'innovateurs.</p>
-            <p>En participant à la WRO, les jeunes apprennent à échouer, à déboguer, à collaborer et à résoudre des problèmes concrets. C'est un laboratoire d'apprentissage intensif pour les <span class="highlight">compétences MINT</span>.</p>
-            <p>Pour la <strong>première saison France 2026</strong>, chaque équipe bénéficie d'un accompagnement pour préparer sa qualification nationale.</p>
+            <p>
+                La <span class="highlight">World Robot Olympiad (WRO)</span> est l’un des plus grands concours de robotique éducative au monde.
+                Organisation mondiale à but non lucratif, elle rassemble des jeunes de 8 à 22 ans pour développer leur
+                créativité, leur capacité de conception et leur sens de la résolution de problèmes à travers des
+                compétitions de robotique stimulantes et ludiques.
+            </p>
+            <p>
+                En France, la WRO invite élèves, entraîneurs, parents et passionnés de sciences, de technologies,
+                d’ingénierie et de mathématiques à participer à des événements de robotique à différents niveaux
+                de progression. L’objectif : sélectionner les meilleures équipes et leurs solutions robotiques lors
+                d’événements virtuels, régionaux et nationaux, puis les présenter sur la scène internationale.
+            </p>
+            <p>
+                En participant à la WRO, les jeunes apprennent à échouer, à déboguer, à collaborer et à résoudre des
+                problèmes concrets. C’est un laboratoire d’apprentissage intensif pour les compétences techniques
+                (mécanique, code, stratégie) et humaines (travail en équipe, communication, gestion du temps).
+            </p>
+            <p>
+                Pour la <strong>première saison WRO France 2026</strong>, la catégorie ouverte sera <strong>RoboMission</strong>.
+                Les autres catégories (Future Innovators, RoboSports, Future Engineers) pourront être déployées
+                progressivement dans les saisons suivantes.
+            </p>
+
+            <!-- STATS WRO -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">43 500 +</div>
+                    <div class="stat-label">Étudiants impliqués</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">100 +</div>
+                    <div class="stat-label">Pays membres</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">28 000 +</div>
+                    <div class="stat-label">Équipes chaque saison</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15 000 +</div>
+                    <div class="stat-label">Participants aux finales</div>
+                </div>
+            </div>
         </section>
 
+        <!-- MOUVEMENT MONDIAL + PILIERS -->
+        <section class="section" style="padding-top:60px; padding-bottom:40px;">
+            <div class="two-columns">
+                <div>
+                    <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:20px;">
+                        Un mouvement mondial pour la technologie et la science.
+                    </h2>
+                    <p style="color:var(--text-muted); font-size:0.98rem;">
+                        La WRO fait partie des plus grandes compétitions de robotique au monde. Elle offre une plateforme
+                        unique pour explorer la technologie et l’ingénierie dans un environnement immersif, pratique
+                        et axé sur la progression. De saison en saison, les participants voient leurs compétences
+                        évoluer : du premier robot de base jusqu’à des systèmes autonomes avancés intégrant vision
+                        par ordinateur et intelligence artificielle.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="font-size:1rem; text-transform:uppercase; font-weight:800; margin-bottom:10px;">
+                        Piliers clés de la compétition
+                    </h3>
+                    <ul class="pillars-list">
+                        <li>
+                            <strong>Innovation :</strong> transformer une idée en robot réel, testé et amélioré en continu.
+                        </li>
+                        <li>
+                            <strong>Travail d’équipe :</strong> répartir les rôles, communiquer, documenter, se soutenir
+                            en cas d’échec.
+                        </li>
+                        <li>
+                            <strong>Application concrète :</strong> lier la robotique aux défis réels, aux ODD de l’ONU
+                            et aux processus industriels.
+                        </li>
+                        <li>
+                            <strong>Compétences d’avenir :</strong> coder, concevoir, analyser, présenter un projet
+                            technique devant un jury.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
         <section class="section" id="categories">
-            <h2 style="text-align:center; text-transform:uppercase; font-weight:900; margin-bottom:50px;">Les 4 Catégories</h2>
+            <h2 style="text-align:center; text-transform:uppercase; font-weight:900; margin-bottom:20px;">
+                Les 4 catégories de compétition
+            </h2>
+            <p style="max-width:760px; margin:0 auto 40px; text-align:center; color:var(--text-muted); font-size:0.98rem;">
+                Des défis et des apprentissages différents pour différents groupes d’âge.
+                Chaque catégorie possède ses propres règles, groupes d’âge et compositions d’équipe, ce qui rend
+                les défis à la fois amusants, exigeants et très variés.
+            </p>
+
             <div class="rings-container">
-                <div class="ring-box" style="--c:var(--yellow)"><svg class="ring-svg" viewBox="0 0 180 180"><circle cx="90" cy="90" r="88" fill="none" stroke="var(--yellow)" stroke-width="2" opacity="0.2" /></svg><div class="orb"></div><div class="ring-label"><span>ROBO</span><strong>MISSION</strong></div></div>
-                <div class="ring-box" style="--c:var(--green)"><svg class="ring-svg" viewBox="0 0 180 180"><circle cx="90" cy="90" r="88" fill="none" stroke="var(--green)" stroke-width="2" opacity="0.2" /></svg><div class="orb" style="animation-delay:-1s"></div><div class="ring-label"><span>ROBO</span><strong>SPORT</strong></div></div>
-                <div class="ring-box" style="--c:var(--magenta)"><svg class="ring-svg" viewBox="0 0 180 180"><circle cx="90" cy="90" r="88" fill="none" stroke="var(--magenta)" stroke-width="2" opacity="0.2" /></svg><div class="orb" style="animation-delay:-2s"></div><div class="ring-label"><span>FUTURE</span><strong>INNOVATORS</strong></div></div>
-                <div class="ring-box" style="--c:var(--cyan)"><svg class="ring-svg" viewBox="0 0 180 180"><circle cx="90" cy="90" r="88" fill="none" stroke="var(--cyan)" stroke-width="2" opacity="0.2" /></svg><div class="orb" style="animation-delay:-3s"></div><div class="ring-label"><span>FUTURE</span><strong>ENGINEERS</strong></div></div>
+                <div class="ring-box" style="--c:var(--yellow)">
+                    <svg class="ring-svg" viewBox="0 0 180 180">
+                        <circle cx="90" cy="90" r="88" fill="none" stroke="var(--yellow)" stroke-width="2" opacity="0.2" />
+                    </svg>
+                    <div class="orb"></div>
+                    <div class="ring-label">
+                        <span>ROBO</span><strong>MISSION</strong>
+                    </div>
+                </div>
+                <div class="ring-box" style="--c:var(--magenta)">
+                    <svg class="ring-svg" viewBox="0 0 180 180">
+                        <circle cx="90" cy="90" r="88" fill="none" stroke="var(--magenta)" stroke-width="2" opacity="0.2" />
+                    </svg>
+                    <div class="orb" style="animation-delay:-1s"></div>
+                    <div class="ring-label">
+                        <span>FUTURE</span><strong>INNOVATORS</strong>
+                    </div>
+                </div>
+                <div class="ring-box" style="--c:var(--green)">
+                    <svg class="ring-svg" viewBox="0 0 180 180">
+                        <circle cx="90" cy="90" r="88" fill="none" stroke="var(--green)" stroke-width="2" opacity="0.2" />
+                    </svg>
+                    <div class="orb" style="animation-delay:-2s"></div>
+                    <div class="ring-label">
+                        <span>ROBO</span><strong>SPORTS</strong>
+                    </div>
+                </div>
+                <div class="ring-box" style="--c:var(--cyan)">
+                    <svg class="ring-svg" viewBox="0 0 180 180">
+                        <circle cx="90" cy="90" r="88" fill="none" stroke="var(--cyan)" stroke-width="2" opacity="0.2" />
+                    </svg>
+                    <div class="orb" style="animation-delay:-3s"></div>
+                    <div class="ring-label">
+                        <span>FUTURE</span><strong>ENGINEERS</strong>
+                    </div>
+                </div>
             </div>
+
             <div class="grid-2">
-                <div class="desc-card" style="--c:var(--yellow)"><h3>RoboMission</h3><p>Conception d'un robot autonome capable de résoudre des défis spécifiques sur un tapis de jeu. (8-19 ans)</p></div>
-                <div class="desc-card" style="--c:var(--green)"><h3>RoboSport</h3><p>Défi de tennis de table : deux robots autonomes collaborent pour renvoyer la balle. (11-19 ans)</p></div>
-                <div class="desc-card" style="--c:var(--magenta)"><h3>Future Innovators</h3><p>Développement d'une solution robotique liée au thème annuel. Prototype et pitch devant jury. (8-19 ans)</p></div>
-                <div class="desc-card" style="--c:var(--cyan)"><h3>Future Engineers</h3><p>Véhicule autonome utilisant vision par ordinateur et IA sur circuit complexe. (14-19 ans)</p></div>
+                <div class="desc-card" style="--c:var(--yellow)">
+                    <h3>RoboMission</h3>
+                    <p>
+                        Une compétition basée sur des défis sur tapis officiel : les équipes doivent concevoir, construire
+                        et programmer un robot autonome qui relève, en temps limité, une série de missions sur le terrain.
+                        La configuration du plateau étant partiellement aléatoire à chaque manche, le robot doit prendre
+                        des décisions par lui-même.
+                    </p>
+                    <p class="age-tag">
+                        Groupes d’âge : 8–12 / 11–15 / 14–19 ans &nbsp;•&nbsp; 2 à 3 élèves du même groupe d’âge + 1 coach adulte.
+                    </p>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">
+                        Matériel et logiciel : <strong>libre choix</strong> (dans le respect des règles internationales), dimensions
+                        max. du robot&nbsp;: 250 × 250 × 250 mm.
+                    </p>
+                </div>
+
+                <div class="desc-card" style="--c:var(--magenta)">
+                    <h3>Future Innovators</h3>
+                    <p>
+                        Les équipes travaillent sur un <strong>projet de robotique</strong> lié au thème annuel, conçoivent un
+                        prototype fonctionnel et le présentent à un jury. On y développe la pensée conceptuelle, la
+                        résolution de problèmes et la capacité à raconter une histoire autour d’une solution technique.
+                    </p>
+                    <p class="age-tag">
+                        Groupes d’âge : 8–12 / 11–15 / 14–19 ans.
+                    </p>
+                </div>
+
+                <div class="desc-card" style="--c:var(--green)">
+                    <h3>RoboSports</h3>
+                    <p>
+                        Teams compete with two autonomous robots in an exciting game (actuellement un défi autour du
+                        tennis de table robotique). RoboSports initie les équipes à la robotique de manière sportive
+                        en utilisant <strong>exclusivement des kits LEGO® Education</strong> et le contrôleur officiel basé
+                        sur Arduino.
+                    </p>
+                    <p class="age-tag">
+                        Groupe d’âge : 11–19 ans.
+                    </p>
+                </div>
+
+                <div class="desc-card" style="--c:var(--cyan)">
+                    <h3>Future Engineers</h3>
+                    <p>
+                        Une catégorie d’<strong>ingénierie avancée</strong> : les équipes conçoivent un véhicule autonome capable de suivre
+                        un circuit complexe en utilisant des capteurs, de la vision par ordinateur et parfois des algorithmes
+                        d’IA, en lien avec les tendances actuelles de la recherche.
+                    </p>
+                    <p class="age-tag">
+                        Groupe d’âge : 14–22 ans.
+                    </p>
+                </div>
             </div>
         </section>
 
+        <!-- FOCUS ROBOMISSION / FORMAT FRANCE -->
+        <section class="section" style="padding-top:60px; padding-bottom:60px;">
+            <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:20px;">
+                Focus RoboMission France 2026
+            </h2>
+            <p style="max-width:780px; color:var(--text-muted); font-size:0.96rem;">
+                Pour la première année de WRO France, la catégorie ouverte sera <strong>RoboMission</strong>.
+                
+            </p>
+            <p style="max-width:780px; color:var(--text-muted); font-size:0.96rem;">
+                Tous les types de robots restent autorisés dans cette catégorie, dans les limites des règles
+                internationales. Les spécifications de matériaux susceptibles d’évoluer seront confirmées à la
+                réception des règles WRO actualisées (attendues fin 2025).
+            </p>
+        </section>
+
+        <!-- PLANNING / SAISON 2026 -->
         <section class="section" id="planning">
-            <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:60px;">Calendrier de la Saison</h2>
+            <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:10px;">
+                Chronologie de la saison 2026
+            </h2>
+            <p style="max-width:780px; color:var(--text-muted); font-size:0.98rem; margin-bottom:30px;">
+                La saison 2026 invite tous les élèves, leurs entraîneurs, ainsi que les parents et les passionnés de
+                robotique à une série d’événements structurés : des championnats virtuels aux rencontres régionales et
+                nationales, jusqu’au <strong>Championnat international</strong>.
+            </p>
+
             <div class="timeline">
                 <div class="time-item">
-                    <h4>Phase de Préparation</h4>
-                    <span class="date-label">Septembre — Décembre</span>
-                    <p style="color: var(--text-muted); max-width: 600px;">Découverte des plateformes, formation technique des coaches et constitution des équipes. Inscriptions officielles sur le portail WRO France.</p>
+                    <h4>Début de la saison</h4>
+                    <span class="date-label">Novembre 2025</span>
+                    <p style="color: var(--text-muted); max-width: 600px;">
+                        Ouverture des inscriptions pour la saison WRO 2026 et publication des grandes lignes du thème
+                        et des règlements internationaux.
+                    </p>
+                </div>
+               
+                
+                <div class="time-item">
+                    <h4>Championnat national</h4>
+                    <span class="date-label">fin août 2026</span>
+                    <p style="color: var(--text-muted); max-width: 600px;">
+                        Finale nationale WRO France : plusieurs manches officielles, évaluation du respect des règles,
+                        de la performance du robot et de l’esprit d’équipe. Les équipes les mieux classées décrochent
+                        leur billet pour le niveau international.
+                    </p>
                 </div>
                 <div class="time-item">
-                    <h4>Phase Compétitive</h4>
-                    <span class="date-label">Janvier — Octobre</span>
-                    <p style="color: var(--text-muted); max-width: 600px;">Sortie des règlements mondiaux, entraînements intensifs, qualifications régionales et Finale Nationale pour décrocher son ticket mondial.</p>
+                    <h4>Championnat international</h4>
+                    <span class="date-label">8–10 décembre 2026</span>
+                    <p style="color: var(--text-muted); max-width: 600px;">
+                        Le Championnat international de la WRO réunit les équipes qualifiées du monde entier. Pour
+                        l’édition 2026, l’événement est prévu à <strong>Porto Rico</strong>, sous réserve des informations
+                        officielles WRO. Les participants y retrouvent le programme complet, les directives détaillées
+                        et les dernières mises à jour de la saison.
+                    </p>
                 </div>
             </div>
         </section>
 
+        <!-- MATERIEL -->
         <section class="section" id="materiel">
             <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:60px;">Matériel & Équipement</h2>
+            <p style="max-width:780px; margin:0 auto 40px; color:var(--text-muted); font-size:0.98rem;">
+                Pour RoboMission et RoboSports, la WRO s’appuie principalement sur la plateforme LEGO® Education.
+                L’objectif est de garantir un environnement maîtrisé, fiable et accessible, tout en laissant la liberté
+                aux équipes de concevoir des robots originaux et performants dans ce cadre.
+            </p>
             <div class="tech-grid">
                 <div class="tech-card">
                     <h4 style="color: var(--yellow)">Plateforme LEGO®</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Idéal pour RoboMission et RoboSport.</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">
+                        Idéale pour RoboMission et RoboSports. Elle permet d’aborder la robotique avec un environnement
+                        structuré, robuste et largement utilisé dans le monde éducatif.
+                    </p>
                     <ul>
-                        <li>Contrôleur <span>SPIKE Prime / EV3</span></li>
-                        <li>Actionneurs <span>Moteurs Technic</span></li>
-                        <li>Capteurs <span>Couleur, Ultrason, Gyro</span></li>
-                        <li>Logiciel <span>Pyton, Scratch</span></li>
+                        <li>Contrôleur <span>SPIKE™ Prime / EV3 (selon règles WRO)</span></li>
+                        <li>Actionneurs <span>Moteurs LEGO® Technic</span></li>
+                        <li>Capteurs <span>Couleur, distance/ultrason, gyro, contacts…</span></li>
+                        <li>Logiciel <span>Blocs, Scratch, Python ou équivalent</span></li>
                     </ul>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:14px;">
+                        En RoboSports, seuls les kits LEGO® Education assortis du contrôleur officiel basé sur Arduino
+                        sont autorisés, afin de garantir l’équité entre les équipes.
+                    </p>
                 </div>
-                <div class="tech-card">
-                    <h4 style="color: var(--cyan)">Systèmes Ouverts</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Pour Future Engineers et Innovators.</p>
-                    <ul>
-                        <li>Calcul <span>Arduino, Raspberry Pi, ESP32</span></li>
-                        <li>Structure <span>Libre (3D, Métal, Bois)</span></li>
-                        <li>Vision <span>Caméra IA, LIDAR</span></li>
-                        <li>Logiciel <span>C++, ROS, Python</span></li>
+            </div>
+        </section>
+
+        <!-- THEMES & PRIX -->
+        <section class="section" style="padding-top:40px; padding-bottom:80px;">
+            <div class="two-columns">
+                <div>
+                    <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:20px;">
+                        Thèmes récents & thème 2026
+                    </h2>
+                    <ul class="theme-list">
+                        <li>
+                            <span class="theme-year">2022 – « Mon robot, mon ami » :</span>
+                            un thème centré sur la santé durable et l’assistance aux personnes.
+                        </li>
+                        <li>
+                            <span class="theme-year">2023 – « Connecter le monde » :</span>
+                            logistique, transport maritime durable et infrastructures numériques.
+                        </li>
+                        <li>
+                            <span class="theme-year">2024 – « Alliés de la Terre » :</span>
+                            développement durable, prévention des catastrophes naturelles et protection de l’environnement.
+                        </li>
+                        <li>
+                            <span class="theme-year">2025 – « L’avenir des robots » :</span>
+                            comment les machines intelligentes peuvent transformer les villes, la vie dans l’espace
+                            et le quotidien grâce à l’IA.
+                        </li>
                     </ul>
+                    <p style="margin-top:18px; color:var(--text-muted); font-size:0.96rem;">
+                        <strong>Thème 2026 : « Quand les robots rencontrent la culture »</strong>.<br>
+                        Les équipes sont invitées à réfléchir à la manière dont la robotique peut contribuer à exprimer,
+                        préserver et partager le patrimoine, les arts, les récits et les identités culturelles dans
+                        le monde entier.
+                    </p>
+                </div>
+                <div>
+                    <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:20px;">
+                        Prix & distinctions
+                    </h2>
+                    <p style="color:var(--text-muted); font-size:0.96rem;">
+                        Lors de chaque niveau de compétition (virtuel, régional, national), les équipes peuvent recevoir
+                        des récompenses pour leurs performances :
+                    </p>
+                    <ul class="pillars-list">
+                        <li>
+                            Médailles d’or, d’argent et de bronze pour les 1<sup>re</sup>, 2<sup>e</sup> et 3<sup>e</sup> places.
+                        </li>
+                        <li>
+                            Certificats électroniques pour tous les élèves et leurs entraîneurs.
+                        </li>
+                        <li>
+                            Distinctions spécifiques possibles (prix du jury, prix d’innovation, prix de l’esprit d’équipe,
+                            etc., selon les pays).
+                        </li>
+                    </ul>
+                    <p style="color:var(--text-muted); font-size:0.9rem; margin-top:10px;">
+                        Au-delà des récompenses, la participation offre surtout une expérience forte : rencontre avec des
+                        équipes du monde entier, immersion dans un environnement technique exigeant, et prise de confiance
+                        en ses capacités.
+                    </p>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px;">
-                <div><div style="font-weight:900; color:var(--pink); font-size:1.5rem; margin-bottom:20px;">WRO FRANCE</div><p style="opacity:0.6;">Organisateur officiel des Olympiades de Robotique.</p></div>
-                <div><h5 style="color:var(--pink); text-transform:uppercase;">Contact</h5><p style="opacity:0.6;">contact@wrofrance.fr</p></div>
+                <div>
+                    <div style="font-weight:900; color:var(--pink); font-size:1.5rem; margin-bottom:20px;">
+                        WRO FRANCE
+                    </div>
+                    <p style="opacity:0.6;">
+                        Organisateur officiel des Olympiades de Robotique en France.
+                        Notre mission&nbsp;: donner à chaque jeune la possibilité de découvrir la robotique,
+                        la programmation et l’ingénierie dans un cadre structuré, bienveillant et ambitieux.
+                    </p>
+                </div>
+                <div>
+                    <h5 style="color:var(--pink); text-transform:uppercase;">Contact</h5>
+                    <p style="opacity:0.6;">
+                        Une question sur la saison, les inscriptions ou l’organisation d’un événement local ?<br>
+                        <a href="mailto:contact@wrofrance.fr" style="color:#fff; font-weight:700; text-decoration:none;">
+                            contact@wrofrance.fr
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <h5 style="color:var(--pink); text-transform:uppercase;">Restez informés</h5>
+                    <p style="opacity:0.6; font-size:0.9rem;">
+                        Prochainement : ressources pour les coaches, guides de préparation, exemples de robots,
+                        ainsi que toutes les informations pratiques sur les événements WRO France.
+                    </p>
+
+                    <!-- Icônes réseaux sociaux -->
+                    <div class="social-links">
+                        <!-- LinkedIn -->
+                        <a class="social-icon" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="WRO France sur LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path fill="white" d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5C1.9 5.5 1 4.6 1 3.5C1 2.4 1.9 1.5 3 1.5C4.1 1.5 4.98 2.4 4.98 3.5ZM2 8.25H4V22H2V8.25ZM8.34 8.25H10.24V9.65H10.27C10.53 9.18 11.07 8.68 11.96 8.68C13.79 8.68 14.25 9.87 14.25 11.53V22H12.25V12.4C12.25 11.47 12.23 10.32 11.03 10.32C9.81 10.32 9.62 11.3 9.62 12.34V22H7.62V8.25H8.34Z"/>
+                            </svg>
+                        </a>
+
+                        <!-- Facebook -->
+                        <a class="social-icon" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="WRO France sur Facebook">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path fill="white" d="M13 3H17V6H15C14.45 6 14 6.45 14 7V9H17V12H14V21H11V12H8V9H11V6.5C11 4.57 12.57 3 14.5 3H13Z"/>
+                            </svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a class="social-icon" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="WRO France sur Instagram">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="3" width="18" height="18" rx="5" ry="5" stroke="white" stroke-width="1.6"/>
+                                <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.6"/>
+                                <circle cx="17" cy="7" r="1.2" fill="white"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
