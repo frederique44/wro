@@ -3,266 +3,484 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>WRO France - World Robot Olympiad™</title>
-    <style>
-        :root {
-            --bg-dark-header: #120a2a; 
-            --bg-page-light: #f8fafc; /* Blanc glacier très pur */
-            --text-dark: #0f172a;
-            --text-muted: #64748b;
-            --pink: #ff2b7a;
-            --violet-accent: #4f46e5;
-            
-            --yellow: #f59e0b;
-            --green: #10b981;
-            --magenta: #d946ef;
-            --cyan: #0ea5e9;
-            
-            --container-width: 1100px;
-        }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
+    <!-- SEO PRINCIPAL -->
+    <meta name="description" content="WRO France : compétition robotique nationale pour enfants et adolescents. Concours de robotique pour collèges et lycées basé sur la technologie et l'innovation. Participez à la RoboMission 2026 !">
+    <meta name="keywords" content="competition robotique, competition college, technologie, wro">
+    <meta name="robots" content="index, follow">
+
+    <!-- URL CANONIQUE -->
+    <link rel="canonical" href="https://wrofrance.fr">
+
+    <!-- COULEUR NAVIGATEUR -->
+    <meta name="theme-color" content="#120a2a">
+
+    <!-- OPEN GRAPH (FACEBOOK + LINKEDIN) -->
+    <meta property="og:title" content="WRO France – Compétition Robotique 2026">
+    <meta property="og:description" content="Participez à la WRO France, une compétition robotique officielle pour collégiens et lycéens. Saison 2026 – RoboMission ouverte.">
+    <meta property="og:image" content="https://wrofrance.fr/images/preview-wro-france.jpg">
+    <meta property="og:url" content="https://wrofrance.fr">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WRO France">
+
+    <!-- SCHEMA.ORG POUR GOOGLE RICH RESULTS -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EventSeries",
+      "name": "World Robot Olympiad France 2026",
+      "url": "https://wrofrance.fr",
+      "description": "Compétition robotique éducative ouverte aux collégiens, lycéens et étudiants en France. Saison RoboMission 2026.",
+      "keywords": "competition robotique, competition college, technologie, wro",
+      "organizer": {
+        "@type": "Organization",
+        "name": "WRO France",
+        "url": "https://wrofrance.fr",
+        "email": "contact@wrofrance.fr"
+      },
+      "event": [{
+        "@type": "Event",
+        "name": "Championnat National WRO France 2026",
+        "startDate": "2026-08-27",
+        "endDate": "2026-08-30",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "Place",
+          "name": "France",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR"
+          }
+        }
+      }]
+    }
+    </script>
+
+   <style>
+    :root {
+        --bg-dark-header: #120a2a; 
+        --bg-page-light: #f8fafc; /* Blanc glacier très pur */
+        --text-dark: #0f172a;
+        --text-muted: #64748b;
+        --pink: #ff2b7a;
+        --violet-accent: #4f46e5;
         
-        body {
-            margin: 0;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-page-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+        --yellow: #f59e0b;
+        --green: #10b981;
+        --magenta: #d946ef;
+        --cyan: #0ea5e9;
+        
+        --container-width: 1100px;
+    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-page-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* TOP SECTION VIOLETTE */
+    .top-section {
+        background: linear-gradient(180deg, #120a2a 0%, #1e153a 100%);
+        color: white;
+        padding-bottom: 100px;
+    }
+
+    .container { 
+        max-width: var(--container-width); 
+        margin: 0 auto; 
+        padding: 0 40px; 
+    }
+
+    .header { 
+        height: 85px; 
+        display: flex; 
+        align-items: center; 
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav { display: flex; gap: 30px; margin-left: auto; }
+    .nav a { 
+        color: #fff; 
+        text-decoration: none; 
+        font-size: 11px; 
+        font-weight: 800; 
+        text-transform: uppercase; 
+        letter-spacing: 1px; 
+        opacity: 0.8; 
+    }
+    .nav a:hover { opacity: 1; color: var(--pink); }
+
+    .hero { padding: 80px 0; text-align: center; }
+    .hero h1 { 
+        font-size: 3.5rem; 
+        font-weight: 900; 
+        margin: 0; 
+        text-transform: uppercase; 
+        letter-spacing: -1px; 
+    }
+    .hero h1 span { color: var(--pink); }
+
+    /* VISION BOX */
+    .vision-text {
+        background: white;
+        border-radius: 24px;
+        padding: 50px;
+        margin-top: -80px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        position: relative;
+        z-index: 10;
+    }
+    .highlight { color: var(--pink); font-weight: 700; }
+
+    /* SECTIONS GLOBALES */
+    .section { padding: 100px 0; }
+
+    /* STATS WRO MONDE */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .stat-card {
+        background: #ffffff;
+        border-radius: 18px;
+        padding: 20px;
+        text-align: center;
+        border: 1px solid #e2e8f0;
+    }
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+    .stat-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-muted);
+    }
+
+    /* TEXTE LONG / PILIERS */
+    .two-columns {
+        display: grid;
+        grid-template-columns: 2fr 1.6fr;
+        gap: 40px;
+        align-items: flex-start;
+    }
+    .pillars-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .pillars-list li {
+        margin-bottom: 16px;
+        padding-left: 18px;
+        position: relative;
+        font-size: 0.95rem;
+    }
+    .pillars-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--pink);
+    }
+
+    /* CATEGORIES RINGS */
+    .rings-container { 
+        display: flex; 
+        justify-content: center; 
+        gap: 40px; 
+        margin: 60px 0; 
+        flex-wrap: wrap; 
+    }
+    .ring-box { position: relative; width: 180px; height: 180px; }
+    .ring-svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+    .orb { 
+        position: absolute; width: 12px; height: 12px; 
+        background: var(--c); border-radius: 50%; 
+        box-shadow: 0 0 15px var(--c); 
+        offset-path: circle(88px at 90px 90px); 
+        animation: orbit 4s linear infinite; 
+    }
+    @keyframes orbit { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+    .ring-label { 
+        position: absolute; inset: 0; 
+        display: flex; flex-direction: column; 
+        align-items: center; justify-content: center; 
+        text-align: center; 
+    }
+    .ring-label span { font-size: 9px; font-weight: 800; opacity: 0.6; color: var(--text-dark); }
+    .ring-label strong { font-size: 1rem; color: var(--c); font-weight: 900; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .desc-card { 
+        padding: 35px; 
+        border-radius: 20px; 
+        background: white; 
+        border: 1px solid #e2e8f0; 
+        border-top: 5px solid var(--c); 
+    }
+    .age-tag {
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+
+    /* CALENDRIER STYLE TIMELINE */
+    .timeline { position: relative; padding: 20px 0; }
+    .timeline::before { 
+        content: ''; position: absolute; 
+        left: 20px; top: 0; bottom: 0; 
+        width: 2px; background: #e2e8f0; 
+    }
+    
+    .time-item { position: relative; padding-left: 60px; margin-bottom: 40px; }
+    .time-item::before { 
+        content: ''; position: absolute; left: 11px; top: 5px; 
+        width: 20px; height: 20px; background: white; 
+        border: 4px solid var(--pink); border-radius: 50%; z-index: 2;
+    }
+    .time-item h4 { 
+        margin: 0 0 5px 0; 
+        color: var(--pink); 
+        text-transform: uppercase; 
+        letter-spacing: 1px; 
+    }
+    .time-item .date-label { 
+        font-weight: 800; 
+        font-size: 1.2rem; 
+        color: var(--bg-dark-header); 
+        display: block; 
+        margin-bottom: 10px; 
+    }
+
+    .badge-level {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.7);
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* MATERIEL STYLE TECH CARDS */
+    .tech-grid { 
+        display: grid; 
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+    }
+    .tech-card { 
+        background: #fff; 
+        border: 1px solid #e2e8f0; 
+        border-radius: 24px; 
+        padding: 40px;
+        position: relative; 
+        overflow: hidden;
+    }
+    .tech-card::after { 
+        content: 'HARDWARE'; 
+        position: absolute; 
+        right: -20px; 
+        top: 20px; 
+        transform: rotate(90deg); 
+        font-size: 3rem; 
+        font-weight: 900; 
+        color: rgba(0,0,0,0.03); 
+        letter-spacing: 5px; 
+    }
+    .tech-card h4 { 
+        font-size: 1.5rem; 
+        margin-top: 0; 
+        text-transform: uppercase; 
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+    }
+    .tech-card ul { 
+        list-style: none; 
+        padding: 0; 
+        margin: 20px 0 0 0; 
+    }
+    .tech-card li { 
+        padding: 12px 0; 
+        border-bottom: 1px solid #f1f5f9; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        font-weight: 500;
+    }
+    .tech-card li span { 
+        color: var(--text-muted); 
+        font-weight: 400; 
+        font-size: 0.9rem; 
+    }
+
+    /* THEMES + PRIX */
+    .theme-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .theme-list li {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+    }
+    .theme-year {
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-right: 6px;
+    }
+
+    /* FOOTER */
+    .footer { background: var(--bg-dark-header); color: white; padding: 80px 0; }
+
+    /* Icônes réseaux sociaux */
+    .social-links {
+        display: flex;
+        gap: 12px;
+        margin-top: 14px;
+    }
+    .social-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+    .social-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    .social-icon:hover {
+        border-color: var(--pink);
+        background: rgba(255,255,255,0.06);
+    }
+
+    /* --------- RESPONSIVE TABLETTE --------- */
+    @media (max-width: 900px) {
+        .container { padding: 0 24px; }
+        .two-columns { grid-template-columns: 1fr; }
+        .grid-2 { grid-template-columns: 1fr; }
+        .stats-grid { grid-template-columns: 1fr 1fr; }
+        .section { padding: 70px 0; }
+        .hero { padding: 60px 0 40px; }
+        .hero h1 { font-size: 2.6rem; }
+    }
+
+    /* --------- RESPONSIVE MOBILE --------- */
+    @media (max-width: 768px) {
+        .container { padding: 0 16px; }
+
+        .header {
+            height: auto;
+            padding: 10px 0;
         }
 
-        /* TOP SECTION VIOLETTE */
-        .top-section {
-            background: linear-gradient(180deg, #120a2a 0%, #1e153a 100%);
-            color: white;
-            padding-bottom: 100px;
+        .nav { display: none; } /* on cache le menu sur mobile */
+
+        .hero {
+            padding: 40px 0 30px;
         }
 
-        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 40px; }
-
-        .header { 
-            height: 85px; 
-            display: flex; 
-            align-items: center; 
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+        .hero h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
         }
-        .nav { display: flex; gap: 30px; margin-left: auto; }
-        .nav a { color: #fff; text-decoration: none; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
-        .nav a:hover { opacity: 1; color: var(--pink); }
 
-        .hero { padding: 80px 0; text-align: center; }
-        .hero h1 { font-size: 3.5rem; font-weight: 900; margin: 0; text-transform: uppercase; letter-spacing: -1px; }
-        .hero h1 span { color: var(--pink); }
-
-        /* VISION BOX */
         .vision-text {
-            background: white;
-            border-radius: 24px;
-            padding: 50px;
-            margin-top: -80px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 10;
+            padding: 28px 22px;
+            margin-top: -40px;
         }
-        .highlight { color: var(--pink); font-weight: 700; }
 
-        /* SECTIONS GLOBALES */
-        .section { padding: 100px 0; }
+        .section {
+            padding: 60px 0;
+        }
 
-        /* STATS WRO MONDE */
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 20px;
-            margin-top: 40px;
+            grid-template-columns: 1fr;
+        }
+
+        /* vidéos : une colonne sur mobile */
+        #videos > div {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+        }
+    }
+
+    /* --------- PETITS TÉLÉPHONES --------- */
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 1.9rem;
         }
         .stat-card {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
+            padding: 16px;
         }
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 900;
+        .top-section {
+            padding-bottom: 60px;
         }
-        .stat-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
+        .footer {
+            padding: 50px 0;
         }
+    }
+</style>
 
-        /* TEXTE LONG / PILIERS */
-        .two-columns {
-            display: grid;
-            grid-template-columns: 2fr 1.6fr;
-            gap: 40px;
-            align-items: flex-start;
-        }
-        .pillars-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .pillars-list li {
-            margin-bottom: 16px;
-            padding-left: 18px;
-            position: relative;
-            font-size: 0.95rem;
-        }
-        .pillars-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 6px;
-            height: 6px;
-            border-radius: 999px;
-            background: var(--pink);
-        }
-
-        /* CATEGORIES RINGS */
-        .rings-container { display: flex; justify-content: center; gap: 40px; margin: 60px 0; flex-wrap: wrap; }
-        .ring-box { position: relative; width: 180px; height: 180px; }
-        .ring-svg { transform: rotate(-90deg); width: 100%; height: 100%; }
-        .orb { 
-            position: absolute; width: 12px; height: 12px; 
-            background: var(--c); border-radius: 50%; 
-            box-shadow: 0 0 15px var(--c); 
-            offset-path: circle(88px at 90px 90px); 
-            animation: orbit 4s linear infinite; 
-        }
-        @keyframes orbit { from { offset-distance: 0%; } to { offset-distance: 100%; } }
-        .ring-label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        .ring-label span { font-size: 9px; font-weight: 800; opacity: 0.6; color: var(--text-dark); }
-        .ring-label strong { font-size: 1rem; color: var(--c); font-weight: 900; }
-
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .desc-card { padding: 35px; border-radius: 20px; background: white; border: 1px solid #e2e8f0; border-top: 5px solid var(--c); }
-        .age-tag {
-            display: inline-block;
-            margin-top: 8px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-
-        /* CALENDRIER STYLE TIMELINE */
-        .timeline { position: relative; padding: 20px 0; }
-        .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: #e2e8f0; }
-        
-        .time-item { position: relative; padding-left: 60px; margin-bottom: 40px; }
-        .time-item::before { 
-            content: ''; position: absolute; left: 11px; top: 5px; 
-            width: 20px; height: 20px; background: white; 
-            border: 4px solid var(--pink); border-radius: 50%; z-index: 2;
-        }
-        .time-item h4 { margin: 0 0 5px 0; color: var(--pink); text-transform: uppercase; letter-spacing: 1px; }
-        .time-item .date-label { font-weight: 800; font-size: 1.2rem; color: var(--bg-dark-header); display: block; margin-bottom: 10px; }
-
-        .badge-level {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.7);
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* MATERIEL STYLE TECH CARDS */
-        .tech-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; /* une seule colonne maintenant */
-            gap: 30px; 
-        }
-        .tech-card { 
-            background: #fff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 40px;
-            position: relative; overflow: hidden;
-        }
-        .tech-card::after { 
-            content: 'HARDWARE'; position: absolute; right: -20px; top: 20px; 
-            transform: rotate(90deg); font-size: 3rem; font-weight: 900; 
-            color: rgba(0,0,0,0.03); letter-spacing: 5px; 
-        }
-        .tech-card h4 { font-size: 1.5rem; margin-top: 0; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
-        .tech-card ul { list-style: none; padding: 0; margin: 20px 0 0 0; }
-        .tech-card li { 
-            padding: 12px 0; border-bottom: 1px solid #f1f5f9; 
-            display: flex; justify-content: space-between; align-items: center;
-            font-weight: 500;
-        }
-        .tech-card li span { color: var(--text-muted); font-weight: 400; font-size: 0.9rem; }
-
-        /* THEMES + PRIX */
-        .theme-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .theme-list li {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        .theme-year {
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-right: 6px;
-        }
-
-        /* FOOTER */
-        .footer { background: var(--bg-dark-header); color: white; padding: 80px 0; }
-
-        /* Ajout pour les icônes réseaux sociaux */
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 14px;
-        }
-        .social-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-        .social-icon svg {
-            width: 16px;
-            height: 16px;
-        }
-        .social-icon:hover {
-            border-color: var(--pink);
-            background: rgba(255,255,255,0.06);
-        }
-    </style>
 </head>
 <body>
 
 <div class="site-wrapper">
     <div class="top-section">
-        <header class="header">
-            <div class="container" style="display:flex; align-items:center; width:100%">
-                <div style="font-weight:900; font-size:1.2rem; letter-spacing:1px">WRO <span style="color:var(--pink)">FRANCE</span></div>
-                <nav class="nav">
-                    <a href="#vision">Vision</a>
-                    <a href="#categories">Catégories</a>
-                    <a href="#planning">Planning</a>
-                    <a href="#materiel">Matériel</a>
-                </nav>
-            </div>
-        </header>
+<header class="header">
+    <div class="container" style="display:flex; align-items:center; width:100%;">
+        
+        <!-- LOGO WRO GAUCHE -->
+        <div style="display:flex; align-items:center; gap:10px;">
+            <img src="images/logo-wro-france.png" 
+                 alt="Logo WRO France" 
+                 style="height:42px; width:auto;">
+        </div>
+
+        <!-- MENU DROITE -->
+        <nav class="nav" style="margin-left:auto;">
+            <a href="#vision">Vision</a>
+            <a href="#categories">Catégories</a>
+            <a href="#planning">Planning</a>
+            <a href="#materiel">Matériel</a>
+        </nav>
+
+    </div>
+</header>
+
         <section class="hero">
             <div class="container">
                 <h1>World Robot <span>Olympiad™</span></h1>
                 <p style="opacity: 0.8; font-size: 1.2rem;">
-                    L'excellence technologique pour la jeunesse, au cœur d'un mouvement mondial de robotique éducative.
+                    La compétition internationale de robotique éducative ouverte à tous les jeunes en France.
                 </p>
                 <p style="opacity: 0.75; font-size: 0.95rem; max-width: 680px; margin: 10px auto 0;">
                     Plus de <strong>28 000 équipes</strong> dans plus de <strong>100 pays membres</strong> explorent chaque année la robotique,
@@ -356,8 +574,7 @@
                             en cas d’échec.
                         </li>
                         <li>
-                            <strong>Application concrète :</strong> lier la robotique aux défis réels, aux ODD de l’ONU
-                            et aux processus industriels.
+                            <strong>Application concrète :</strong> lier la robotique aux défis réels et aux processus industriels.
                         </li>
                         <li>
                             <strong>Compétences d’avenir :</strong> coder, concevoir, analyser, présenter un projet
@@ -451,7 +668,7 @@
                 <div class="desc-card" style="--c:var(--green)">
                     <h3>RoboSports</h3>
                     <p>
-                        Les équipes s’affrontent avec deux robots autonomes dans un jeu dynamique.  (actuellement un défi autour du
+                        Les équipes s’affrontent avec deux robots autonomes dans un jeu dynamique (actuellement un défi autour du
                         tennis de table robotique). RoboSports initie les équipes à la robotique de manière sportive
                         en utilisant <strong>exclusivement des kits LEGO® Education</strong> et le contrôleur officiel basé
                         sur Arduino.
@@ -475,14 +692,98 @@
             </div>
         </section>
 
-        <!-- FOCUS ROBOMISSION / FORMAT FRANCE -->
+        <!-- SECTION VIDÉOS SOUS LES CATÉGORIES -->
+        <!-- SECTION VIDÉOS SOUS LES CATÉGORIES -->
+<section class="section" id="videos" style="padding-top:40px; padding-bottom:60px;">
+    <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:20px; text-align:center;">
+        Découvrir la WRO en images
+    </h2>
+    <p style="max-width:780px; margin:0 auto 40px; text-align:center; color:var(--text-muted); font-size:0.98rem;">
+        Quatre vidéos pour comprendre l’esprit de la World Robot Olympiad, la place de la robotique éducative
+        et le thème « Robots Meet Culture ». Activez les sous-titres français si nécessaire.
+    </p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; max-width:1100px; margin:0 auto;">
+        
+        <!-- VIDÉO 1 : What is WRO? -->
+        <div>
+            <h3 style="text-align:center; margin-bottom:10px; font-size:1rem;">
+                🎥 Qu'est-ce que la WRO ? (Film officiel)
+            </h3>
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:18px;">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/rAXe8OpalL0?cc_load_policy=1&cc_lang_pref=fr&modestbranding=1&rel=0"
+                    title="World Robot Olympiad – Présentation avec sous-titres français"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:18px;">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- VIDÉO 2 : Jeunes & Robotique -->
+        <div>
+            <h3 style="text-align:center; margin-bottom:10px; font-size:1rem;">
+                🤖 Jeunes & Robotique – Esprit WRO
+            </h3>
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:18px;">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/xaxI51WSZJ4?cc_load_policy=1&cc_lang_pref=fr&modestbranding=1&rel=0"
+                    title="World Robot Olympiad – Vidéo avec sous-titres français"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:18px;">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- VIDÉO 3 : Robots Meet Culture (plm9Hj0VzSc) -->
+        <div>
+            <h3 style="text-align:center; margin-bottom:10px; font-size:1rem;">
+                🎶 RoboSports
+            </h3>
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:18px;">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/plm9Hj0VzSc?cc_load_policy=1&cc_lang_pref=fr&modestbranding=1&rel=0"
+                    title="WRO 2026 Robots Meet Culture – Teaser"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:18px;">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- VIDÉO 4 : Robots Meet Culture (6tBOA-oNK6M) -->
+        <div>
+            <h3 style="text-align:center; margin-bottom:10px; font-size:1rem;">
+                🌍 Future innovators
+            </h3>
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:18px;">
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/6tBOA-oNK6M?cc_load_policy=1&cc_lang_pref=fr&modestbranding=1&rel=0"
+                    title="Robots Meet Culture – Vidéo d'inspiration"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:18px;">
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- FIN SECTION VIDÉOS -->
+
+        <!-- FOCUS ROBOMISSION / FORMAT FRANCE (DESSOUS LES VIDÉOS) -->
         <section class="section" style="padding-top:60px; padding-bottom:60px;">
             <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:20px;">
                 Focus RoboMission France 2026
             </h2>
             <p style="max-width:780px; color:var(--text-muted); font-size:0.96rem;">
                 Pour la première année de WRO France, la catégorie ouverte sera <strong>RoboMission</strong>.
-                
             </p>
             <p style="max-width:780px; color:var(--text-muted); font-size:0.96rem;">
                 Tous les types de robots restent autorisés dans cette catégorie, dans les limites des règles
@@ -511,11 +812,9 @@
                         et des règlements internationaux.
                     </p>
                 </div>
-               
-                
                 <div class="time-item">
                     <h4>Championnat national</h4>
-                    <span class="date-label">fin août 2026</span>
+                    <span class="date-label">Fin août 2026</span>
                     <p style="color: var(--text-muted); max-width: 600px;">
                         Finale nationale WRO France : plusieurs manches officielles, évaluation du respect des règles,
                         de la performance du robot et de l’esprit d’équipe. Les équipes les mieux classées décrochent
@@ -532,6 +831,13 @@
                         et les dernières mises à jour de la saison.
                     </p>
                 </div>
+            </div>
+        </section>
+
+        <!-- IMAGE THÈME 2026 (en bas, au-dessus du matériel) -->
+        <section class="section" style="padding-top:40px; padding-bottom:40px;">
+            <div style="text-align:center;">
+                <img src="images/wro2026.png" alt="Thème officiel WRO 2026 : Robots Meet Culture" style="max-width:420px; width:100%; height:auto;">
             </div>
         </section>
 
@@ -561,6 +867,11 @@
                         sont autorisés, afin de garantir l’équité entre les équipes.
                     </p>
                 </div>
+            </div>
+
+            <!-- IMAGE ROBOT SPIKE EN BAS DU MATERIEL -->
+            <div style="text-align:center; margin-top:40px;">
+                <img src="images/robot-spike.png" alt="Exemple de robot LEGO SPIKE utilisé en WRO" style="max-width:420px; width:100%; height:auto;">
             </div>
         </section>
 
@@ -627,41 +938,41 @@
         </section>
 
         <!-- SECTION FORMULAIRE TALLY -->
-<section class="section" id="inscription" style="padding-bottom:40px; padding-top:40px;">
+        <section class="section" id="inscription" style="padding-bottom:40px; padding-top:40px;">
 
-    <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:20px;">
-        Pré-inscription WRO France 2026
-    </h2>
-    <p style="max-width:780px; color:var(--text-muted); font-size:0.96rem;">
-        Remplissez ce formulaire en ligne pour pré-inscrire votre équipe à la WRO France 2026 (catégorie RoboMission).
-    </p>
+            <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:20px;">
+                Pré-inscription WRO France 2026
+            </h2>
+            <p style="max-width:780px; color:var(--text-muted); font-size:0.96rem;">
+                Remplissez ce formulaire en ligne pour pré-inscrire votre équipe à la WRO France 2026 (catégorie RoboMission).
+            </p>
 
-    <!-- BOUTON TALLY JUSTE SOUS LE TEXTE -->
-    <a href="https://tally.so/r/2Eayke" target="_blank"
-       style="display:inline-block; margin-top:16px; padding:10px 24px; border-radius:999px;
-              background:var(--pink); color:#fff; font-weight:700; text-decoration:none;
-              text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">
-        Ouvrir le formulaire de pré-inscription
-    </a>
+            <!-- BOUTON TALLY JUSTE SOUS LE TEXTE -->
+            <a href="https://tally.so/r/2Eayke" target="_blank"
+               style="display:inline-block; margin-top:16px; padding:10px 24px; border-radius:999px;
+                      background:var(--pink); color:#fff; font-weight:700; text-decoration:none;
+                      text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">
+                Ouvrir le formulaire de pré-inscription
+            </a>
 
-    <!-- IFRAME TALLY EN DESSOUS -->
-    <div style="margin-top:30px;">
-        <iframe data-tally-src="https://tally.so/r/2Eayke?transparentBackground=1&dynamicHeight=1"
-                style="width:100%; height:600px; border:0;" title="Pré-inscription WRO France 2026"></iframe>
-    </div>
+            <!-- IFRAME TALLY EN DESSOUS -->
+            <div style="margin-top:30px;">
+                <iframe data-tally-src="https://tally.so/r/2Eayke?transparentBackground=1&dynamicHeight=1"
+                        style="width:100%; height:600px; border:0;" title="Pré-inscription WRO France 2026"></iframe>
+            </div>
 
-    <script>
-    var d=document,w="https://tally.so/widgets/embed.js",v=function(){
-        if("undefined"!=typeof Tally){Tally.loadEmbeds()}
-        else{
-            d.querySelectorAll("script[src='"+w+"']").length
-            || d.head.appendChild(d.createElement("script")).src=w
-        }
-    };
-    "complete"!==d.readyState ? v() : d.addEventListener("DOMContentLoaded",v);
-    </script>
-</section>
-<!-- FIN SECTION FORMULAIRE TALLY -->
+            <script>
+            var d=document,w="https://tally.so/widgets/embed.js",v=function(){
+                if("undefined"!=typeof Tally){Tally.loadEmbeds()}
+                else{
+                    d.querySelectorAll("script[src='"+w+"']").length
+                    || d.head.appendChild(d.createElement("script")).src=w
+                }
+            };
+            "complete"!==d.readyState ? v() : d.addEventListener("DOMContentLoaded",v);
+            </script>
+        </section>
+        <!-- FIN SECTION FORMULAIRE TALLY -->
 
     </div>
 
