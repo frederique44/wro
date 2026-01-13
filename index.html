@@ -354,7 +354,12 @@
     }
 
     /* FOOTER */
-    .footer { background: var(--bg-dark-header); color: white; padding: 80px 0; }
+   .footer {
+    background: var(--bg-dark-header);
+    color: white;
+    padding: 30px 0 50px; /* haut 40px, bas 60px (ou même 40/40 si tu veux très compact) */
+}
+
 
     /* Icônes réseaux sociaux */
     .social-links {
@@ -447,8 +452,14 @@
         .footer {
             padding: 50px 0;
         }
-    }
-</style>
+    
+
+#inscription.section {
+  padding-bottom: 0 !important;
+}
+  
+  
+  </style>
 
 </head>
 <body>
@@ -792,6 +803,15 @@
             </p>
         </section>
 
+        <!-- IMAGE THÈME 2026 
+   <!-- IMAGE THÈME 2026 (en bas, au-dessus du matériel) -->
+<section class="section" style="padding-top:40px; padding-bottom:40px; text-align:center;">
+    <img src="images/wro2026.png"
+         alt="Thème officiel WRO 2026 : Robots Meet Culture"
+         style="max-width:420px; width:100%; height:auto; display:inline-block;">
+</section>
+
+      
         <!-- PLANNING / SAISON 2026 -->
         <section class="section" id="planning">
             <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:10px;">
@@ -834,40 +854,41 @@
             </div>
         </section>
 
-        <!-- IMAGE THÈME 2026 (en bas, au-dessus du matériel) -->
-        <section class="section" style="padding-top:40px; padding-bottom:40px;">
-            <div style="text-align:center;">
-                <img src="images/wro2026.png" alt="Thème officiel WRO 2026 : Robots Meet Culture" style="max-width:420px; width:100%; height:auto;">
-            </div>
-        </section>
+
 
         <!-- MATERIEL -->
-        <section class="section" id="materiel">
-            <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:60px;">Matériel & Équipement</h2>
-            <p style="max-width:780px; margin:0 auto 40px; color:var(--text-muted); font-size:0.98rem;">
-                Pour RoboMission et RoboSports, la WRO s’appuie principalement sur la plateforme LEGO® Education.
-                L’objectif est de garantir un environnement maîtrisé, fiable et accessible, tout en laissant la liberté
-                aux équipes de concevoir des robots originaux et performants dans ce cadre.
-            </p>
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <h4 style="color: var(--yellow)">Plateforme LEGO®</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">
-                        Idéale pour RoboMission et RoboSports. Elle permet d’aborder la robotique avec un environnement
-                        structuré, robuste et largement utilisé dans le monde éducatif.
-                    </p>
-                    <ul>
-                        <li>Contrôleur <span>SPIKE™ Prime / EV3 (selon règles WRO)</span></li>
-                        <li>Actionneurs <span>Moteurs LEGO® Technic</span></li>
-                        <li>Capteurs <span>Couleur, distance/ultrason, gyro, contacts…</span></li>
-                        <li>Logiciel <span>Blocs, Scratch, Python ou équivalent</span></li>
-                    </ul>
-                    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:14px;">
-                        En RoboSports, seuls les kits LEGO® Education assortis du contrôleur officiel basé sur Arduino
-                        sont autorisés, afin de garantir l’équité entre les équipes.
-                    </p>
-                </div>
-            </div>
+<!-- MATERIEL -->
+<section class="section" id="materiel">
+    <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:60px;">
+        Matériel & Équipement – Saison 2026
+    </h2>
+
+    <p style="max-width:780px; margin:0 auto 20px; color:var(--text-muted); font-size:0.98rem;">
+        À partir de 2025, les règles internationales ouvrent <strong>RoboMission</strong> à plusieurs
+        plateformes robotiques. Les équipes peuvent utiliser des systèmes LEGO® (SPIKE, EV3, Inventor,
+        NXT) ou d'autres technologies comme Arduino, Raspberry Pi ou kits éducatifs similaires, tant que
+        le robot est autonome et respecte les dimensions et règles de la WRO.
+    </p>
+
+    <p style="max-width:780px; margin:0 auto 20px; color:var(--text-muted); font-size:0.98rem;">
+        La gamme <strong>LEGO® SPIKE™</strong> reste autorisée en compétition et supportée dans les écoles,
+        même si elle évolue commercialement. Les équipes peuvent donc continuer à utiliser leur matériel
+        actuel ou explorer de nouvelles plateformes selon leurs compétences.
+    </p>
+
+    <p style="max-width:780px; margin:0 auto 20px; color:var(--text-muted); font-size:0.98rem;">
+        Le terrain de jeu reste standardisé pour toutes les équipes : tapis officiel RoboMission 2026
+        (thème <em>Robots Meet Culture</em>), table respectant les dimensions WRO, et objets construits
+        avec les kits de briques WRO (45811 & 45819).
+    </p>
+
+    <p style="max-width:780px; margin:0 auto 30px; color:var(--text-muted); font-size:0.98rem;">
+        Pour participer à la saison WRO France 2026, chaque équipe doit simplement disposer :
+        d’un <strong>robot autonome</strong> (plateforme au choix), d’un <strong>ordinateur ou tablette</strong>
+        pour le programmer et du <strong>tapis + table + éléments officiels</strong>.
+    </p>
+
+
 
             <!-- IMAGE ROBOT SPIKE EN BAS DU MATERIEL -->
             <div style="text-align:center; margin-top:40px;">
@@ -938,8 +959,11 @@
         </section>
 
         <!-- SECTION FORMULAIRE TALLY -->
-        <section class="section" id="inscription" style="padding-bottom:40px; padding-top:40px;">
-
+   
+<!-- SECTION FORMULAIRE TALLY -->
+<section class="section" id="inscription" style="padding-top:20px; padding-bottom:0;">
+          
+          
             <h2 style="text-transform:uppercase; font-weight:900; margin-bottom:20px;">
                 Pré-inscription WRO France 2026
             </h2>
@@ -958,7 +982,7 @@
             <!-- IFRAME TALLY EN DESSOUS -->
             <div style="margin-top:30px;">
                 <iframe data-tally-src="https://tally.so/r/2Eayke?transparentBackground=1&dynamicHeight=1"
-                        style="width:100%; height:600px; border:0;" title="Pré-inscription WRO France 2026"></iframe>
+                        style="width:100%; height:200px; border:0;" title="Pré-inscription WRO France 2026"></iframe>
             </div>
 
             <script>
