@@ -105,12 +105,14 @@
         padding: 0 40px; 
     }
 
-    .header { 
-        height: 85px; 
-        display: flex; 
-        align-items: center; 
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+.header { 
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 0 25px; /* espace haut / bas pour descendre la ligne */
+    height: auto;         /* plus de hauteur fixe */
+}
+
     .nav { display: flex; gap: 30px; margin-left: auto; }
     .nav a { 
         color: #fff; 
@@ -472,8 +474,9 @@
         <!-- LOGO WRO GAUCHE -->
         <div style="display:flex; align-items:center; gap:10px;">
             <img src="images/logo.png" 
-                 alt="Logo WRO France" 
-                 style="height:120px; width:auto;">
+     alt="Logo WRO France" 
+     style="height:140px; width:auto; display:block;">
+
         </div>
 
         <!-- MENU DROITE -->
